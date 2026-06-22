@@ -1,5 +1,4 @@
 services:
-#http://host.docker.internal:9092
   influxdb3-enterprise:
     image: influxdb:3-enterprise
     ports:

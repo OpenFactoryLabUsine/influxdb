@@ -1,0 +1,8 @@
+
+# Installation
+
+1) `cp .env.dev .env`
+2) Complétez `EXPLORER_SESSION_SECRET_KEY` par n'importe quelle chaine de charactères.
+3) Complétez `INFLUXDB3_LICENSE_EMAIL` par un email. Au lancement du container, une clé pour la license `Home` sera associé à cet email
+4) Ne pas toucher à `INFLUXDB3_LICENSE_TYPE`
+5) `docker compose up -d`
