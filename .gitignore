@@ -1,0 +1,5 @@
+influxdb3/*
+influxdb3-ui/*
+!influxdb3-ui/.gitignore
+!influxdb3/.gitignore
+.env
