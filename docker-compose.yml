@@ -4,7 +4,7 @@ services:
     ports:
       - 8181:8181
     networks:
-      - factory-net
+      - influxdb-net
     command:
       - influxdb3
       - serve
@@ -52,8 +52,8 @@ services:
       SESSION_SECRET_KEY: ${EXPLORER_SESSION_SECRET_KEY}
     restart: unless-stopped
     networks:
-      - factory-net
+      - influxdb-net
 
 networks:
-  factory-net:
-    external: true
+  influxdb-net:
+    driver: bridge
