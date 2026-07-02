@@ -59,7 +59,7 @@ services:
       container_name: telegraf
       command: --config /etc/telegraf/telegraf.conf
       networks:
-        - factory-net
+        - influxdb-net
       volumes:
         - type: bind
           source: ./telegraf/telegraf.conf
