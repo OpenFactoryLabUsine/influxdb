@@ -67,7 +67,7 @@ services:
           read_only: true
       environment:
         KAFKA_BROKER: ${KAFKA_BROKER}
-        INFLUXDB3_TOKEN: ${INFLUDB3_TOKEN}
+        INFLUXDB3_TOKEN: ${INFLUXDB3_TOKEN}
       depends_on:
         - influxdb3-enterprise
 
