@@ -65,6 +65,9 @@ services:
           source: ./telegraf/telegraf.conf
           target: /etc/telegraf/telegraf.conf
           read_only: true
+      environment:
+        KAFKA_BROKER: ${KAFKA_BROKER}
+        INFLUXDB3_TOKEN: ${INFLUDB3_TOKEN}
       depends_on:
         - influxdb3-enterprise
 
