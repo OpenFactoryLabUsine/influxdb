@@ -20,7 +20,7 @@ RUN curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor
 RUN python3 -m venv /opt/venv
 
 RUN /opt/venv/bin/pip install --upgrade pip && \
-    /opt/venv/bin/pip install pyodbc numpy librosa scipy
+    /opt/venv/bin/pip install pyodbc numpy librosa scipy minio
 
 # Copie du script dans le conteneur
 COPY telegraf/router.py /etc/telegraf/router.py

@@ -3,3 +3,4 @@ influxdb3-ui/*
 !influxdb3-ui/.gitignore
 !influxdb3/.gitignore
 .env
+minio/*
