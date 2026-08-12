@@ -4,3 +4,5 @@ influxdb3-ui/*
 !influxdb3/.gitignore
 .env
 minio/*
+alarik/*
+.git.bak/*

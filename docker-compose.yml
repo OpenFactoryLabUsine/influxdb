@@ -68,28 +68,44 @@ services:
         KAFKA_BROKER: ${KAFKA_BROKER}
         INFLUXDB3_TOKEN: ${INFLUXDB3_TOKEN}
         SQL_DB_CONN: ${SQL_DB_CONN}
-        MINIO_ROOT_USER: ${MINIO_ROOT_USER}
-        MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
-        MINIO_ENDPOINT: "minio:9000"
+        ALARIK_ACCESS_KEY: ${ALARIK_ACCESS_KEY}
+        ALARIK_SECRET_KEY: ${ALARIK_SECRET_KEY}
+        ALARIK_ENDPOINT: "alarik:8080"
       depends_on:
         - influxdb3-enterprise
 
-  minio:
-    image: quay.io/minio/minio:latest
-    container_name: minio
+  alarik:
+    image: ghcr.io/achtungsoftware/alarik:latest
+    restart: unless-stopped
     ports:
-      - 9000:9000
-      - 9001:9001
+      - "8081:8080"
     environment:
-      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
-      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
-    command: server /data --console-address ":9001"
-    networks:
-      - influxdb-net
+      - API_BASE_URL=http://localhost:8081
+      - CONSOLE_BASE_URL=http://localhost:3000
+      - ADMIN_USERNAME=${ALARIK_ADMIN_USERNAME}
+      - ADMIN_PASSWORD=${ALARIK_ADMIN_PASSWORD}
+      - JWT=${ALARIK_JWT_SECRET}
+      - ALLOW_ACCOUNT_CREATION=false
     volumes:
       - type: bind
-        source: ./minio/data
-        target: /data
+        source: ./alarik/data
+        target: /app/Storage
+    networks:
+      - influxdb-net
+
+  console:
+    image: ghcr.io/achtungsoftware/alarik-console:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NUXT_PUBLIC_API_BASE_URL=http://localhost:8081
+      - NUXT_PUBLIC_CONSOLE_BASE_URL=http://localhost:3000
+      - NUXT_PUBLIC_ALLOW_ACCOUNT_CREATION=false
+    depends_on:
+      - alarik
+    networks:
+      - influxdb-net
 
 networks:
   influxdb-net:
