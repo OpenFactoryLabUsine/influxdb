@@ -1,6 +1,9 @@
 
 # Installation
 
+## InfluxDB3-Explorer
+Interface d'administration `http://IP:8888`
+
 1) `cp .env.dev .env`
 2) Compléter `EXPLORER_SESSION_SECRET_KEY` par n'importe quelle chaine de charactères.
 3) Compléter `INFLUXDB3_LICENSE_EMAIL` par un email. Au lancement du container, une clé pour la license `Home` sera associé à cet email
@@ -20,3 +23,13 @@
     - Une `ephemeral`
     - Une `lifetime`
 13) Vérifier les logs de telegraf avec `docker logs -f telegraf` pour vérifier que les données sont biens écrites et qu'une table `AssetsMetrics` a bien été créée dans la DB `ephemeral`
+
+
+## Alarik
+Interface d'administration `http://IP:3000`
+
+1) Modifier les valeurs `ALARIK_ADMIN_USERNAME`, `ALARIK_ADMIN_PASSWORD`, `ALARIK_JWT_SECRET` dans le .env avant la première construction du docker compose.
+Aller sur l'interface d'administration dans la page `Access Keys` et générer une paire `Access Key`.
+Dans le `.env` :  
+- Remplacer : `ALARIK_ACCESS_KEY` par la première valeur  
+- Remplacer : `ALARIK_SECRET_KEY` par la seconde valeur
