@@ -26,7 +26,8 @@
 
 
 # Architecture de la base de données UNS et InfluxDB
-https://drive.google.com/file/d/1YusKIMbdyGEp18N9HCsDHoum7bLBM_h8/view?usp=sharing
+https://drive.google.com/file/d/1i3Ktpq6ZXiuFX_UvpEjZso4J-Q-3uIac/view?usp=sharing 
 
 Fichier JSON du schéma de la BDD à importer dans https://www.drawdb.app/ :
-https://drive.google.com/file/d/1RKXHL5mbSTZDbcsxmHx_g50hDGVIoo1E/view?usp=sharing
+https://drive.google.com/file/d/11Rmu_N7Y_Y2ZsZqyRMuoC4ywbYq-gfxr/view?usp=sharing 
+
