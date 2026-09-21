@@ -20,3 +20,12 @@
     - Une `ephemeral`
     - Une `lifetime`
 13) Vérifier les logs de telegraf avec `docker logs -f telegraf` pour vérifier que les données sont biens écrites et qu'une table `AssetsMetrics` a bien été créée dans la DB `ephemeral`
+
+# Architecture du workflow des données
+[labusine_workflow.pdf](https://drive.google.com/file/d/1Y_b5su8IuDMo5vCkerYpIPA7xQfaD6QN/view?usp=sharing)
+
+# Architecture de la base de données UNS et InfluxDB
+https://drive.google.com/file/d/1P14-PED4nK4PLWh1nHYL5VJUwAAiqTfx/view?usp=sharing
+
+Fichier JSON du schéma de la BDD à importer dans https://www.drawdb.app/ :
+https://drive.google.com/file/d/1Dibbuaq0RIsybV-homYx2GSSaVPtAE4e/view?usp=sharing
