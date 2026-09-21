@@ -1,6 +1,7 @@
 services:
   influxdb3-enterprise:
-    image: influxdb:3-enterprise
+    image: influxdb:3.11.5-enterprise
+    container_name: influxdb3-enterprise
     ports:
       - 8181:8181
     networks:
@@ -29,7 +30,7 @@ services:
       - "host.docker.internal:host-gateway"
 
   explorer:
-    image: influxdata/influxdb3-ui:1.8.0
+    image: influxdata/influxdb3-ui:1.9.0
     container_name: influxdb3-explorer
     pull_policy: always
     command:
@@ -55,21 +56,22 @@ services:
       - influxdb-net
 
   telegraf:
-      container_name: telegraf
-      build: .
-      networks:
-        - influxdb-net
-      volumes:
-        - type: bind
-          source: ./telegraf
-          target: /etc/telegraf
-          read_only: true
-      environment:
-        KAFKA_BROKER: ${KAFKA_BROKER}
-        INFLUXDB3_TOKEN: ${INFLUXDB3_TOKEN}
-        SQL_DB_CONN: ${SQL_DB_CONN}
-      depends_on:
-        - influxdb3-enterprise
+    image: telegraf:1.40.0
+    container_name: telegraf
+    build: .
+    networks:
+      - influxdb-net
+    volumes:
+      - type: bind
+        source: ./telegraf
+        target: /etc/telegraf
+        read_only: true
+    environment:
+      KAFKA_BROKER: ${KAFKA_BROKER}
+      INFLUXDB3_TOKEN: ${INFLUXDB3_TOKEN}
+      SQL_DB_CONN: ${SQL_DB_CONN}
+    depends_on:
+      - influxdb3-enterprise
 
 networks:
   influxdb-net:
