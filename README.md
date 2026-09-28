@@ -25,7 +25,7 @@
 [labusine_workflow.pdf](https://drive.google.com/file/d/1Y_b5su8IuDMo5vCkerYpIPA7xQfaD6QN/view?usp=sharing)
 
 # Architecture de la base de données UNS et InfluxDB
-https://drive.google.com/file/d/1P14-PED4nK4PLWh1nHYL5VJUwAAiqTfx/view?usp=sharing
+https://drive.google.com/file/d/1CIu4Llg9n31gYGY3txfQRkUoP3j6mIjP/view?usp=sharing
 
 Fichier JSON du schéma de la BDD à importer dans https://www.drawdb.app/ :
-https://drive.google.com/file/d/1Dibbuaq0RIsybV-homYx2GSSaVPtAE4e/view?usp=sharing
+https://drive.google.com/file/d/14EoUd1MbToPXmr5WduQap95DW4CPNKX2/view?usp=sharing
