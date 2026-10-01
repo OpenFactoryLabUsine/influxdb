@@ -58,18 +58,17 @@ services:
   telegraf:
     image: telegraf:1.40.0
     container_name: telegraf
-    build: .
+    command: --config /etc/telegraf/telegraf.conf
     networks:
       - influxdb-net
     volumes:
       - type: bind
-        source: ./telegraf
-        target: /etc/telegraf
+        source: ./telegraf/telegraf.conf
+        target: /etc/telegraf/telegraf.conf
         read_only: true
     environment:
       KAFKA_BROKER: ${KAFKA_BROKER}
       INFLUXDB3_TOKEN: ${INFLUXDB3_TOKEN}
-      SQL_DB_CONN: ${SQL_DB_CONN}
     depends_on:
       - influxdb3-enterprise
 
